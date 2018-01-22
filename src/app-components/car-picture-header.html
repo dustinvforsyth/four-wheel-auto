@@ -1,0 +1,36 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/polymer2-ts/polymer2-ts.html">
+
+<dom-module id="car-picture-header">
+    <template>
+        <style>
+            #pictureContainer {
+                /* background-image: url("../../images/inventorypicture.jpg"); */
+                background-color: var(--app-primary-color);
+                background-repeat: none;
+                background-size: cover;
+            }
+
+            .title-picture {
+                padding-top: 150px;
+                padding-bottom: 125px;
+                font-size: 52px;
+                text-align: center;
+                font-family: var(--paper-font-common-base_-_font-family);
+                text-shadow: -1px -1px 10px black;
+                color: white;
+            }
+
+            @media (max-width: 600px) {
+                .title-picture {
+                    padding-top: 50px;
+                    padding-bottom: 40px;
+                }
+            }
+        </style>
+        <div id="pictureContainer">
+            <div class="title-picture">[[pageTitle]]</div>
+        </div>
+    </template>
+    <script src="car-picture-header.js"></script>
+</dom-module>

@@ -1,0 +1,178 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymer2-ts/polymer2-ts.html">
+
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="./my-icons.html">
+<link rel="import" href="../bower_components/paper-styles/paper-styles.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/titanium-dependency-injection/titanium-dependency-resolver-mixin.html">
+<link rel="import" href="../bower_components/titanium-dependency-injection/titanium-provider-mixin.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="./service-worker.html">
+<link rel="import" href="./app-components/car-menu.html">
+<link rel="import" href="./car-landing.html">
+<link rel="import" href="./car-about.html">
+<link rel="import" href="./car-contact.html">
+<link rel="import" href="./car-inventory.html">
+<link rel="import" href="./car-sold.html">
+
+
+
+
+
+
+
+
+
+
+
+<dom-module id="my-app">
+
+    <template>
+        <style>
+             :host {
+                --app-primary-color: #6d1111;
+                --app-primary-text-color: black;
+                --app-secondary-color: rgb(143, 154, 165);
+                font-family: 'Nova Flat';
+                color: rgb(143, 154, 165);
+            }
+
+            body {
+                /* No margin on body so toolbar can span the screen */
+                margin: 0;
+            }
+
+            app-toolbar {
+                /* Toolbar is the main header, so give it some color */
+                background-color: rgb(255, 255, 255);
+                color: var(--app-primary-color);
+                -webkit-box-shadow: 0px 4px 6px 0px rgba(8, 14, 41, 0.13);
+                -moz-box-shadow: 0px 4px 6px 0px rgba(8, 14, 41, 0.13);
+                box-shadow: 0px 4px 6px 0px rgba(8, 14, 41, 0.13);
+            }
+
+            .header-img {
+                padding-right: 25px;
+                padding-left: 25px;
+            }
+
+            .image-container {
+                @apply --layout-horizontal;
+                @apply --layout-flex;
+            }
+
+            .header-menu-container {
+                @apply --layout-horizontal;
+                @apply --layout-flex2;
+                font-size: 15px;
+            }
+
+            .drawer-menu-container {
+                @apply --layout-vertical;
+                color: black;
+            }
+
+            .title-text {
+                font-size: 34px;
+                weight: 800;
+                color: black;
+                line-height: 64px;
+            }
+
+            [drawer-menu-buttons] {}
+
+            .userManager-container {
+                @apply --layout-horizontal;
+                @apply --layout-flex;
+            }
+
+            .header {
+                @apply --layout-horizontal;
+                /* @apply --layout-flex; */
+            }
+
+
+            #drawerButton {
+                display: none;
+            }
+
+            #logoButton {
+                cursor: pointer;
+            }
+
+            @media (max-width: 840px) {
+                .header-menu-container {
+                    display: none;
+                }
+
+                #drawerButton {
+                    display: block;
+                }
+
+                .page-title {
+                    font-size: 32px
+                }
+            }
+
+            @media (max-width: 482px) {
+                .title-text {
+                    font-size: 16px;
+                }
+            }
+
+            @media (max-width: 355px) {
+                .header-img {
+                    display: none;
+                }
+            }
+        </style>
+        <app-location route="{{route}}"></app-location>
+        <app-route route="{{route}}" data="{{routeData}}" pattern="/:page"></app-route>
+
+        <app-drawer-layout force-narrow>
+            <app-drawer id="drawer" slot="drawer" disable-swipe align="right">
+            </app-drawer>
+            <app-header-layout>
+                <app-header slot="header" fixed condenses effects="waterfall">
+                    <app-toolbar sticky class="header">
+                        <div class="image-container">
+                            <iron-image id="logoButton" class="header-img" src='../../images/logo_nowords-60.JPG'></iron-image>
+                            <div class="title-text">Four Wheel Auto</div>
+                            <!-- <iron-image class="header-img" src="../../images/logo_nowords.JPG"></iron-image> -->
+                        </div>
+                        <div class="header-menu-container">
+                            <car-menu menu-page={{page}}></car-menu>
+                        </div>
+                        <paper-icon-button id="drawerButton" icon="my-icons:menu"></paper-icon-button>
+                    </app-toolbar>
+                </app-header>
+
+                <div class="main-content-container">
+                    <iron-pages selected=[[page]] attr-for-selected="name">
+                        <car-landing name="landing"></car-landing>
+                        <car-about name="about"></car-about>
+                        <car-contact name="contact"></car-contact>
+                        <car-inventory name="inventory"></car-inventory>
+                        <car-sold name="sold"></car-sold>
+                    </iron-pages>
+                </div>
+
+            </app-header-layout>
+        </app-drawer-layout>
+
+
+    </template>
+    <script src="my-app.js"></script>
+</dom-module>

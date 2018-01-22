@@ -1,0 +1,53 @@
+{
+  "name": "project",
+  "version": "1.4.2",
+  "description": "conference.leavitt.com",
+  "main": "service-worker.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.23.0"
+  },
+  "devDependencies": {
+    "clang-format": "^1.0.55",
+    "tslint": "^4.0.2",
+    "browser-sync": "^2.18.2",
+    "gulp": "^3.9.1",
+    "typescript": "^2.4.2",
+    "bower": "*",
+    "mkdirp": "0.5.x"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "lint": "tslint \"src/**/*.ts\"",
+    "clean": "echo Cleaning... && mkdirp es5-bundled && rmdir /s /q es5-bundled",
+    "build:es5": "echo \"Transpiling and building es5...\" && npm run clean && npm run lint && tsc && polymer build --preset es5-bundled",
+    "build:es6": "echo \"Transpiling and building es6...\" npm run lint && tsc -t es2017 && polymer build --preset es6-bundled",
+    "build": "npm run build:es5 && move build\\es5-bundled es5-bundled && npm run build:es6 && move es5-bundled build\\es5 && move build\\es6-bundled build\\es6",
+    "publish": "npm run build",
+    "postpublish": "echo \"Moving Publish Scripts to Root...\" && move build\\es6\\Web.config build\\Web.config && move build\\es6\\Web.Release.config build\\Web.Release.config && move build\\es6\\Web.Debug.config build\\Web.Debug.config && move build\\es6\\publish.csproj build\\publish.csproj && move build\\es6\\Properties build\\Properties",
+    "test": "npm run lint && tsc",
+    "serve:es5": "polymer serve --root build/es5-bundled",
+    "serve:es6": "polymer serve --root build/es6-bundled -P https/1.1",
+    "dev:es6": "npm run build:es6 && npm run serve:es6",
+    "dev:es5": "npm run build:es5 && npm run serve:es5"
+  },
+  "scriptsMac": {
+    "postinstall": "bower install",
+    "lint": "tslint \"src/**/*.ts\"",
+    "clean": "echo Cleaning... && mkdirp es5-bundled && rm -r es5-bundled",
+    "build:es5": "echo \"Transpiling and building es5...\" && npm run clean && npm run lint && tsc && polymer build --preset es5-bundled",
+    "build:es6": "echo \"Transpiling and building es6...\" npm run lint && tsc -t es2017 && polymer build --preset es6-bundled",
+    "build": "npm run build:es5 && mv build/es5-bundled es5-bundled && npm run build:es6 && mv es5-bundled build/es5 && mv build/es6-bundled build/es6",
+    "publish": "npm run build",
+    "postpublish": "echo \"Moving Publish Scripts to Root...\" && mv build/es6/Web.config build/Web.config && mv build/es6/Web.Release.config build/Web.Release.config && mv build/es6/Web.Debug.config build/Web.Debug.config && mv build/es6/publish.csproj build/publish.csproj && mv build/es6/Properties build/Properties",
+    "test": "npm run lint && tsc",
+    "serve:es5": "polymer serve --root build/es5-bundled",
+    "serve:es6": "polymer serve --root build/es6-bundled -P https/1.1",
+    "dev:es6": "npm run build:es6 && npm run serve:es6",
+    "dev:es5": "npm run build:es5 && npm run serve:es5"
+  },
+  "author": "",
+  "license": "ISC"
+}

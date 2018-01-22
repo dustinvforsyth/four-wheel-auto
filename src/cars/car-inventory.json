@@ -1,0 +1,55 @@
+{
+    "cars": [{
+            "title": "2016 Ford Explorer Limited",
+            "mileage": "20,000",
+            "vin": "23oi4j2342oij342o42io34",
+            "transmission": "auto",
+            "color": "silver",
+            "price": "31,000",
+            "nadaPrice": "33,500",
+            "featuredImage": "../../images/explorer/IMG_2209 2.JPG",
+            "images": [
+                "../../images/explorer/IMG_2209 2.JPG"
+            ]
+        },
+        {
+            "title": "2015 Ford Explorer Sport",
+            "mileage": "40,000",
+            "vin": "23oi4j2342oij342o42iasdfa4",
+            "transmission": "auto",
+            "color": "silver",
+            "price": "33,000",
+            "nadaPrice": "35,500",
+            "featuredImage": "../../images/explorerSport2015/inside.jpg",
+            "images": [
+                "../../images/explorerSport2015/inside.jpg"
+            ]
+        },
+        {
+            "title": "2017 Ford F-150 Lariat",
+            "mileage": "6,000",
+            "vin": "23oi4j2342oi42iaasdfadfa4",
+            "transmission": "auto",
+            "color": "silver",
+            "price": "43,000",
+            "nadaPrice": "45,500",
+            "featuredImage": "../../images/f150_2017_lariat/1.JPG",
+            "images": [
+                "../../images/f150_2017_lariat/1.JPG"
+            ]
+        },
+        {
+            "title": "2017 Dodge Journey SXT",
+            "mileage": "11,000",
+            "vin": "2323425sdfi42iaasdfadfa4",
+            "transmission": "auto",
+            "color": "silver",
+            "price": "18,000",
+            "nadaPrice": "19,500",
+            "featuredImage": "../../images/journeyDodge2017/IMG_1537.JPG",
+            "images": [
+                "../../images/journeyDodge2017/IMG_1537.JPG"
+            ]
+        }
+    ]
+}

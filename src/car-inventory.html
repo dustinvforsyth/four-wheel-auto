@@ -1,0 +1,21 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymer2-ts/polymer2-ts.html">
+
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
+
+<link rel="import" href="./app-components/car-picture-header.html">
+<link rel="import" href="./app-components/car-inventory-list.html">
+
+
+<dom-module id="car-inventory">
+    <template>
+        <style>
+
+        </style>
+        <iron-ajax url="./src/cars/car-inventory.json" auto last-response="{{inventory}}"></iron-ajax>
+        <car-picture-header page-title="Inventory" picture-url="../../images/inventorypicture.jpg"></car-picture-header>
+        <car-inventory-list inventory="[[inventory]]"></car-inventory-list>
+    </template>
+    <script src="car-inventory.js"></script>
+</dom-module>

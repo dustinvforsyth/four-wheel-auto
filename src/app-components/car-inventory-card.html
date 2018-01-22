@@ -1,0 +1,96 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/polymer2-ts/polymer2-ts.html">
+
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+
+
+
+<dom-module id="car-inventory-card">
+    <template>
+        <style include="iron-flex iron-flex-alignment"></style>
+        <style>
+            .inventory-card {
+                margin: 12px;
+                padding: 8px;
+                overflow: hidden;
+            }
+
+            .car-title {
+                color: var(--app-primary-text-color);
+                font-size: 24px;
+                padding-left: 10px;
+                border-bottom: 1px solid black;
+            }
+
+            .logo-img {
+                position: absolute;
+                top: auto;
+                bottom: 8px;
+                left: 8px;
+                right: auto;
+            }
+
+            .car-information {
+                padding-left: 10px;
+                min-width: 290px;
+            }
+
+            .pricing-container {
+                padding: 12px;
+                min-width: 158px;
+                color: black;
+                text-shadow: 1px 1px 10px var(--app-secondary-color);
+                font-weight: 800;
+            }
+
+            .price {
+                background-color: rgba(109, 17, 17, 0.308);
+                border: var(--app-secondary-color) 4px solid;
+                border-radius: 4px;
+                padding: 18px;
+            }
+
+            .picture-container {
+                position: relative;
+                text-align: center;
+                height: 180px;
+            }
+
+            .card-image {
+                margin: auto;
+            }
+        </style>
+        <paper-card class="inventory-card layout flex horizontal center-center wrap">
+
+            <div class="picture-container">
+                <iron-image class="card-image" src="[[carInfo.featuredImage]]" sizing="cover" height='180' width="320"></iron-image>
+                <iron-image class="logo-img" src="../../images/truckLogoNoBackground.png" sizing="cover" height='50' width='50'></iron-image>
+            </div>
+
+            <div class="layout horizontal center-center wrap flex">
+                <div class="car-information flex">
+                    <div class="car-title">[[carInfo.title]]</div>
+                    <div class="secondary-information">
+                        <ul>
+                            <li>Mileage: [[carInfo.mileage]]</li>
+                            <li>VIN#: [[carInfo.vin]]</li>
+                            <li>Exterior Color: [[carInfo.color]]</li>
+                            <li>Transmission: [[carInfo.transmission]]</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pricing-container">
+                    <div class="price">
+                        <div>Our Price: $[[carInfo.price]]</div>
+                        <div>NADA Price: $[[carInfo.nadaPrice]]</div>
+                    </div>
+                </div>
+            </div>
+
+        </paper-card>
+    </template>
+    <script src="car-inventory-card.js"></script>
+</dom-module>

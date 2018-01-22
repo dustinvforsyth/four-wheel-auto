@@ -1,0 +1,91 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymer2-ts/polymer2-ts.html">
+
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="./app-components/car-picture-header.html">
+<link rel="import" href="./app-components/car-inventory-card.html">
+
+
+<dom-module id="car-landing">
+    <template>
+        <style include="iron-flex iron-flex-alignment"></style>
+        <style>
+            car-inventory-list {
+                width: 50%;
+            }
+
+
+
+
+
+            paper-card {
+                margin: 10px;
+            }
+
+            iron-image {
+                margin: 20px;
+            }
+
+            h1 {
+                padding: 15px;
+                color: black;
+            }
+
+            h2 {
+                padding: 0 25px;
+            }
+
+            .margin-top {
+                margin-top: 30px;
+            }
+
+            .category-text {
+                font-size: 84px;
+                padding: 30px 0;
+            }
+
+            .landing-sidebar {
+                width: 100%;
+            }
+
+            @media (min-width: 1080px) {
+                .landing-sidebar {
+                    max-width: 380px;
+                }
+                .landing-main-content {
+                    min-width: 700px;
+                }
+            }
+        </style>
+        <iron-ajax url="./src/cars/car-inventory.json" auto last-response="{{inventory}}"></iron-ajax>
+        <car-picture-header page-title="Welcome" picture-url="../../images/inventorypicture.jpg"></car-picture-header>
+        <div class="layout horizontal wrap">
+            <div class="layout vertical flex landing-main-content">
+                <paper-card>
+                    <h1>Welcome To Four Wheel Auto Online</h1>
+                    <h2>What Type of Vehicle can we help you find?</h2>
+                    <div class="layout vertical center-center">
+                        <div class="layout horizontal wrap center-center">
+                            <iron-image src="./images/truck_landing.webp" sizing="cover" height="150" width="380"></iron-image>
+                            <div class="category-text">Truck</div>
+                        </div>
+                        <div class="layout horizontal center-center wrap">
+                            <iron-image src="./images/suv_landing.png" sizing="cover" height="200" width="380"></iron-image>
+                            <div class="category-text">SUV</div>
+                        </div>
+                        <div class="layout horizontal center-center wrap">
+                            <iron-image src="./images/car_landing.png" sizing="cover" height="205" width="380"></iron-image>
+                            <div class="category-text">Car</div>
+                        </div>
+
+                    </div>
+                </paper-card>
+            </div>
+            <div class="landing-sidebar">
+                <car-inventory-list inventory="[[inventory]]"></car-inventory-list>
+            </div>
+        </div>
+    </template>
+    <script src="car-landing.js"></script>
+</dom-module>

@@ -1,0 +1,17 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/polymer2-ts/polymer2-ts.html">
+
+<link rel="import" href="./car-inventory-card.html">
+
+<dom-module id="car-inventory-list">
+    <template>
+        <style>
+
+        </style>
+
+        <template is="dom-repeat" items={{getCars(inventory)}} as="item">
+            <car-inventory-card car-info="[[item]]"></car-inventory-card>
+        </template>
+    </template>
+    <script src="car-inventory-list.js"></script>
+</dom-module>

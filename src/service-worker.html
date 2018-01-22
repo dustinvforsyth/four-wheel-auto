@@ -1,0 +1,50 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="service-worker">
+    <template>
+        <style>
+            aside {
+                position: fixed;
+                bottom: 0;
+                left: 8px;
+                display: flex;
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 14px;
+                background: #323232;
+                color: #f1f1f1;
+                font-size: 14px;
+                visibility: hidden;
+                transform: translate3d(0, 100%, 0);
+                transition-property: transform, visibility;
+                transition-duration: 0.2s;
+                will-change: transform, visibility;
+            }
+
+            aside.visible {
+                visibility: visible;
+                transform: translate3d(0, 0, 0);
+            }
+
+            #updatedMessage span {
+                flex: 1;
+            }
+
+            #updatedMessage a {
+                text-decoration: none;
+                color: #eeff41;
+                font-weight: 400;
+                padding-left: 8px;
+            }
+        </style>
+
+        <aside id="installedMessage">Site cached for offline use.</aside>
+
+        <aside id="updatedMessage">
+            <span>Site updated.</span>
+            <a href on-click="_reload">Reload</a>
+        </aside>
+    </template>
+
+    <script src="service-worker.js"></script>
+</dom-module>

@@ -1,0 +1,32 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/my-app.html",
+  "fragments": [],
+  "sources": [
+    "src/**/*",
+    "images/**/*",
+    "legacy/**/*",
+    "Properties/**/*",
+    "publish.csproj",
+    "bower.json",
+    "Web.config",
+    "Web.Debug.config",
+    "Web.Release.config",
+    "favicon-16x16.png",
+    "favicon-32x32.png"
+  ],
+  "extraDependencies": [
+    "manifest.json",
+    "bower_components/webcomponentsjs/webcomponents-lite.js",
+    "bower_components/webcomponentsjs/custom-elements-es5-adapter.js",
+    "bower_components/fetch/fetch.js",
+    "node_modules/babel-polyfill/dist/polyfill.min.js"
+  ],
+  "builds": [{
+    "name": "es6",
+    "preset": "es6-bundled"
+  }, {
+    "name": "es5",
+    "preset": "es5-bundled"
+  }]
+}
