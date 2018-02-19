@@ -41,7 +41,7 @@
 
     <template>
         <style>
-             :host {
+            :host {
                 --app-primary-color: #6d1111;
                 --app-primary-text-color: black;
                 --app-secondary-color: rgb(143, 154, 165);
@@ -143,6 +143,7 @@
 
         <app-drawer-layout force-narrow>
             <app-drawer id="drawer" slot="drawer" disable-swipe align="right">
+                <car-menu menu-page="{{page}}" drawer-menu></car-menu>
             </app-drawer>
             <app-header-layout>
                 <app-header slot="header" fixed condenses effects="waterfall">
