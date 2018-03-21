@@ -1,12 +1,27 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/polymer2-ts/polymer2-ts.html">
 
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+
+
 <dom-module id="car-contact">
     <template>
+        <style include="iron-flex iron-flex-alignment"></style>
         <style>
-
+            paper-card {
+                max-width: 1350px;
+                margin: 20px;
+                padding: 20px;
+            }
         </style>
         <car-picture-header page-title="Contact Us" picture-url="../../images/contactHeader.JPG"></car-picture-header>
+        <div class="layout horizontal center-center">
+            <paper-card class="layout horizontal flex">
+                <h2>Give us a call</h2>
+            </paper-card>
+        </div>
     </template>
     <script src="car-contact.js"></script>
 </dom-module>
