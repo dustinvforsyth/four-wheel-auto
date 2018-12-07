@@ -5,6 +5,7 @@
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="./app-components/car-picture-header.html">
 <link rel="import" href="./app-components/car-inventory-card.html">
+<link rel="import" href="./app-components/car-footer.html">
 
 
 <dom-module id="car-landing">
@@ -63,7 +64,7 @@
                     <h2>What Type of Vehicle can we help you find?</h2>
                     <div class="layout vertical center-center">
                         <div class="layout horizontal wrap center-center">
-                            <iron-image src="./images/truck_landing.webp" sizing="cover" height="150" width="380"></iron-image>
+                            <iron-image src="./images/truck_landing.png" sizing="cover" height="200" width="380"></iron-image>
                             <div class="category-text">Truck</div>
                         </div>
                         <div class="layout horizontal center-center wrap">
@@ -81,6 +82,7 @@
                 <car-inventory-list inventory="[[inventory]]"></car-inventory-list>
             </div>
         </div>
+        <car-footer></car-footer>
     </template>
     <script src="car-landing.js"></script>
 </dom-module>
